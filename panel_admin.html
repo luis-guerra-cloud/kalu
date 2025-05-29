@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administración - PAEC</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f7f7f7;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #ultimoAcceso {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #c62828;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #b71c1c;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Bienvenido al registro de cookies </h1>
+
+  <!-- Contenedor donde se mostrará la fecha de último acceso -->
+  <p id="ultimoAcceso"></p>
+
+  <script>
+    // Función para obtener una cookie por nombre
+    function getCookie(nombre) {
+      const nombreEQ = nombre + "=";
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        let c = cookies[i].trim();
+        if (c.indexOf(nombreEQ) === 0) return c.substring(nombreEQ.length, c.length);
+      }
+      return null;
+    }
+
+    // Mostrar la cookie de último acceso del admin
+    window.onload = function () {
+      const acceso = getCookie("ultimo_acceso_admin");
+      const mensaje = acceso
+        ? `Último acceso registrado: ${new Date(acceso).toLocaleString()}`
+        : "No se ha registrado un acceso reciente.";
+      document.getElementById("ultimoAcceso").textContent = mensaje;
+    };
+
+    // Función opcional para cerrar sesión (borra cookies simples y redirige)
+    function cerrarSesion() {
+      document.cookie = "ultimo_acceso_admin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      window.location.href = "index.html"; // redirige a la página de inicio o login
+    }
+  </script>
+
+</body>
+</html>

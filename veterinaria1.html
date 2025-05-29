@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria KALU</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #0288d1;
+            color: white;
+        }
+        header h1 {
+            font-size: 48px;
+        }
+        section {
+            padding: 20px;
+        }
+        .service {
+            border: 1px solid #0288d1;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+        .service img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .contact {
+            text-align: center;
+            padding: 20px;
+            background-color: #0288d1;
+            color: white;
+        }
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .link-button {
+            display: inline-block;
+            background-color: #b3e5fc; /* Azul pastel */
+            color: #01579b;
+            padding: 15px 30px;
+            border: 2px solid #0288d1; /* Borde azul */
+            border-radius: 10px; /* Bordes redondeados */
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
+        .link-button:hover {
+            background-color: #81d4fa; /* Azul más oscuro para hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Veterinaria 🐾 <em>KALU</em> 🐾</h1>
+    </header>
+
+    <section>
+        <h2>Servicios</h2>
+
+        <div class="service">
+            <h3>Cirugías</h3>
+            <p>Realizamos cirugías de todo tipo con tecnología avanzada y personal altamente capacitado.</p>
+            <img src="cirugias.jpg.jpeg" alt="Cirugía veterinaria">
+        </div>
+
+        <div class="service">
+            <h3>Cuidado</h3>
+            <p>Ofrecemos servicios de cuidado general para el bienestar de tus mascotas.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (1).jpeg" alt="Cuidado de mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Estética</h3>
+            <p>Servicios de estética para que tus mascotas luzcan increíbles.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.53 PM.jpeg" alt="Estética para mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Alimentación</h3>
+            <p>Te asesoramos sobre la mejor nutrición para tus mascotas y contamos con alimentos especializados.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (3).jpeg" alt="Alimentación para mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Entrenamiento</h3>
+            <p>Ofrecemos entrenamiento profesional para mejorar el comportamiento de tus mascotas.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (8).jpeg" alt="Entrenamiento para mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Vacunación</h3>
+            <p>Aplicamos vacunas esenciales para mantener a tus mascotas protegidas.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (2).jpeg" alt="Vacunación de mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Desparasitación</h3>
+            <p>Servicios de desparasitación para prevenir problemas de salud en tus mascotas.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (5).jpeg" alt="Desparasitación de mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Chequeos</h3>
+            <p>Chequeos generales para detectar problemas de salud a tiempo.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (7).jpeg" alt="Chequeo veterinario">
+        </div>
+
+        <div class="service">
+            <h3>Hospitalización</h3>
+            <p>Atención hospitalaria para casos que requieren cuidados avanzados.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (4).jpeg" alt="Hospitalización veterinaria">
+        </div>
+
+    </section>
+
+    <section class="contact">
+        <h2>Contacto</h2>
+        <p>Teléfono: 5630283032</p>
+        <p>Email: contacto@kaluveterinaria.com</p>
+        <p>Dirección: Calle Ejemplo 123, Ciudad de México</p>
+    </section>
+
+    <!-- ... el resto del código anterior permanece igual -->
+
+    <section class="button-container">
+        <a href="Menú.html" class="link-button">Ir al Menú</a>
+    </section>
+
+    <!-- Contenido agregado -->
+    <section>
+        <h1>Bienvenido a Veterinaria KALU</h1>
+
+        <!-- Carrusel -->
+        <div id="carousel" class="carousel">
+            <img src="img1.jpg" class="carousel-image active">
+            <img src="img2.jpg" class="carousel-image">
+            <img src="img3.jpg" class="carousel-image">
+        </div>
+
+        <!-- Botón Admin -->
+        <button id="adminBtn">Administrador</button>
+
+        <!-- Login -->
+        <form id="loginForm" action="login.php" method="POST">
+            <h2>Iniciar sesión</h2>
+            <input type="text" id="user" name="user" placeholder="Usuario"><br>
+            <input type="password" id="pass" name="pass" placeholder="Contraseña"><br>
+
+            <!-- Google reCAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="6Lfo_jMrAAAAANcTW3C5m9ffCKCci88PHi9N5XTF"></div><br>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <!-- Formulario producto -->
+        <div id="productForm">
+            <h2>Alta de Producto</h2>
+            <input type="text" placeholder="Nombre del producto">
+            <input type="text" placeholder="Precio">
+            <textarea placeholder="Descripción"></textarea>
+            <button>Guardar</button>
+        </div>
+
+        <!-- Botón con eventos -->
+        <button id="colorBtn">Interactuar</button>
+    </section>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        // Carrusel
+        let index = 0;
+        const images = document.querySelectorAll('.carousel-image');
+        setInterval(() => {
+            images[index].classList.remove('active');
+            index = (index + 1) % images.length;
+            images[index].classList.add('active');
+        }, 3000);
+
+        // Mostrar login
+        document.getElementById("adminBtn").addEventListener("click", () => {
+            document.getElementById("loginForm").style.display = "block";
+        });
+
+        // Estética botón
+        const btn = document.getElementById("colorBtn");
+        btn.addEventListener("mouseover", () => {
+            btn.style.backgroundColor = "orange";
+        });
+        btn.addEventListener("mouseout", () => {
+            btn.style.backgroundColor = "#4CAF50";
+        });
+        btn.addEventListener("keydown", (e) => {
+            alert("Tecla presionada: " + e.key);
+        });
+    </script>
+</body>
+
+</html>

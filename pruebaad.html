@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Veterinaria KALU</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+
+    .carousel {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    .carousel-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .carousel-image.active {
+      display: block;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #loginForm, #productForm {
+      display: none;
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Bienvenido a Veterinaria KALU</h1>
+
+  <!-- Carrusel -->
+  <div id="carousel" class="carousel">
+    <img src="img1.jpg" class="carousel-image active">
+    <img src="img2.jpg" class="carousel-image">
+    <img src="img3.jpg" class="carousel-image">
+  </div>
+
+  <!-- Botón Admin -->
+  <button id="adminBtn">Administrador</button>
+
+  <!-- Login -->
+  <form action="login.php" method="POST">
+  <h2>Iniciar sesión</h2>
+  <input type="text" name="user" placeholder="Usuario"><br>
+  <input type="password" name="pass" placeholder="Contraseña"><br>
+
+  <!-- Google reCAPTCHA -->
+  <div class="g-recaptcha" data-sitekey="6Lfo_jMrAAAAANcTW3C5m9ffCKCci88PHi9N5XTF"></div><br>
+
+  <button type="submit">Entrar</button>
+</form>
+
+<!-- Carga el script de reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <!-- Formulario producto -->
+  <div id="productForm">
+    <h2>Alta de Producto</h2>
+    <input type="text" placeholder="Nombre del producto">
+    <input type="text" placeholder="Precio">
+    <textarea placeholder="Descripción"></textarea>
+    <button>Guardar</button>
+  </div>
+
+  <!-- Botón con eventos -->
+  <button id="colorBtn">Interactuar</button>
+
+  <script>
+    // Carrusel
+    let index = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    setInterval(() => {
+      images[index].classList.remove('active');
+      index = (index + 1) % images.length;
+      images[index].classList.add('active');
+    }, 3000);
+
+    // Mostrar login
+    document.getElementById("adminBtn").addEventListener("click", () => {
+      document.getElementById("loginForm").style.display = "block";
+    });
+
+    // Validación de acceso
+    function login() {
+      const user = document.getElementById("user").value;
+      const pass = document.getElementById("pass").value;
+      const captcha = document.getElementById("captcha").value;
+
+      if (user === "kalu" && pass === "12345" && captcha === "7") {
+        alert("Acceso concedido");
+        document.getElementById("loginForm").style.display = "none";
+        document.getElementById("productForm").style.display = "block";
+      } else {
+        alert("Datos incorrectos");
+      }
+    }
+
+    // Estética botón
+    const btn = document.getElementById("colorBtn");
+    btn.addEventListener("mouseover", () => {
+      btn.style.backgroundColor = "orange";
+    });
+    btn.addEventListener("mouseout", () => {
+      btn.style.backgroundColor = "#4CAF50";
+    });
+    btn.addEventListener("keydown", (e) => {
+      alert("Tecla presionada: " + e.key);
+    });
+  </script>
+
+</body>
+</html>

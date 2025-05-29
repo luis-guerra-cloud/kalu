@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Panel Administrativo - Veterinaria KALU</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #0288d1;
+      color: white;
+    }
+
+    form, #resultadoBusqueda, #ultimoAcceso {
+      max-width: 500px;
+      margin: 20px auto;
+      background: #fff;
+      border: 2px solid #0288d1;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    button {
+      background-color: #0288d1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0277bd;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Panel Administrativo - KALU</h1>
+  </header>
+
+  <div>
+    <h2>Alta de Producto</h2>
+    <form id="altaForm">
+      <input type="text" id="nombre" placeholder="Nombre del producto" required />
+      <input type="text" id="precio" placeholder="Precio" required />
+      <textarea id="descripcion" placeholder="Descripción" required></textarea>
+      <button type="submit">Guardar</button>
+    </form>
+
+    <h2>Buscar Producto</h2>
+    <form id="buscarForm">
+      <input type="text" id="buscarNombre" placeholder="Nombre del producto" />
+      <button type="submit">Buscar</button>
+    </form>
+    <div id="resultadoBusqueda"></div>
+
+    <h2>Eliminar Producto</h2>
+    <form id="eliminarForm">
+      <input type="number" id="eliminarId" placeholder="ID del producto" />
+      <button type="submit">Eliminar</button>
+    </form>
+    <div id="ultimoAcceso" style="margin-top: 20px; font-weight: bold;"></div>
+  </div>
+
+  <script>
+    // Leer cookie de último acceso
+    const ultimo = getCookie("ultimo_acceso_admin");
+    const div = document.getElementById("ultimoAcceso");
+    if (ultimo) {
+      const fechaLocal = new Date(ultimo).toLocaleString("es-MX");
+      div.textContent = "Último acceso: " + fechaLocal;
+    } else {
+      div.textContent = "Bienvenido por primera vez.";
+    }
+
+    // Alta producto
+    document.getElementById("altaForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      const precio = document.getElementById("precio").value;
+      const descripcion = document.getElementById("descripcion").value;
+
+      const res = await fetch("alta_producto.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre, precio, descripcion })
+      });
+      const data = await res.text();
+      alert(data);
+    });
+
+    // Buscar producto
+    document.getElementById("buscarForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const nombre = document.getElementById("buscarNombre").value;
+
+      const res = await fetch(`buscar_producto.php?nombre=${encodeURIComponent(nombre)}`);
+      const data = await res.json();
+      const resultado = document.getElementById("resultadoBusqueda");
+
+      if (data.length) {
+        resultado.innerHTML = data.map(prod =>
+          `<p><strong>ID:</strong> ${prod.id} - <strong>Nombre:</strong> ${prod.nombre} - <strong>Precio:</strong> $${prod.precio} - <strong>Descripción:</strong> ${prod.descripcion}</p>`
+        ).join('');
+      } else {
+        resultado.innerHTML = "<p>No se encontraron productos.</p>";
+      }
+    });
+
+    // Eliminar producto
+    document.getElementById("eliminarForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const id = document.getElementById("eliminarId").value;
+
+      const res = await fetch("eliminar_producto.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id })
+      });
+      const data = await res.text();
+      alert(data);
+    });
+
+    // Funciones de cookies
+    function getCookie(nombre) {
+      const nombreEQ = nombre + "=";
+      const cookies = document.cookie.split(';');
+      for(let i = 0; i < cookies.length; i++) {
+        let c = cookies[i];
+        while (c.charAt(0) === ' ') c = c.substring(1);
+        if (c.indexOf(nombreEQ) === 0) return c.substring(nombreEQ.length, c.length);
+      }
+      return null;
+    }
+  </script>
+</body>
+</html>
