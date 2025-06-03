@@ -1,1 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria KALU</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+        }
 
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #0288d1;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 48px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .service {
+            border: 1px solid #0288d1;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #ffffff;
+        }
+
+        .service img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 20px;
+            background-color: #0288d1;
+            color: white;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .link-button {
+            display: inline-block;
+            background-color: #b3e5fc;
+            color: #01579b;
+            padding: 15px 30px;
+            border: 2px solid #0288d1;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .link-button:hover {
+            background-color: #81d4fa;
+        }
+
+        #loginForm, #productForm {
+            display: none;
+            margin: 20px auto;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #0288d1;
+            border-radius: 10px;
+        }
+
+        #loginForm input, #productForm input, #productForm textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .carousel-image {
+            display: none;
+            width: 100%;
+        }
+
+        .carousel-image.active {
+            display: block;
+        }
+
+        #colorBtn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Veterinaria 🐾 <em>KALU</em> 🐾</h1>
+    </header>
+
+    <section>
+        <h2>Servicios</h2>
+
+        <div class="service">
+            <h3>Cirugías</h3>
+            <p>Realizamos cirugías de todo tipo con tecnología avanzada y personal altamente capacitado.</p>
+            <img src="cirugias.jpg.jpeg" alt="Cirugía veterinaria">
+        </div>
+
+        <div class="service">
+            <h3>Cuidado</h3>
+            <p>Ofrecemos servicios de cuidado general para el bienestar de tus mascotas.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (1).jpeg" alt="Cuidado de mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Estética</h3>
+            <p>Servicios de estética para que tus mascotas luzcan increíbles.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.53 PM.jpeg" alt="Estética para mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Alimentación</h3>
+            <p>Te asesoramos sobre la mejor nutrición para tus mascotas y contamos con alimentos especializados.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (3).jpeg" alt="Alimentación para mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Entrenamiento</h3>
+            <p>Ofrecemos entrenamiento profesional para mejorar el comportamiento de tus mascotas.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (8).jpeg" alt="Entrenamiento para mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Vacunación</h3>
+            <p>Aplicamos vacunas esenciales para mantener a tus mascotas protegidas.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (2).jpeg" alt="Vacunación de mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Desparasitación</h3>
+            <p>Servicios de desparasitación para prevenir problemas de salud en tus mascotas.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (5).jpeg" alt="Desparasitación de mascotas">
+        </div>
+
+        <div class="service">
+            <h3>Chequeos</h3>
+            <p>Chequeos generales para detectar problemas de salud a tiempo.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (7).jpeg" alt="Chequeo veterinario">
+        </div>
+
+        <div class="service">
+            <h3>Hospitalización</h3>
+            <p>Atención hospitalaria para casos que requieren cuidados avanzados.</p>
+            <img src="WhatsApp Image 2025-03-27 at 4.07.54 PM (4).jpeg" alt="Hospitalización veterinaria">
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Contacto</h2>
+        <p>Teléfono: 5630283032</p>
+        <p>Email: contacto@kaluveterinaria.com</p>
+        <p>Dirección: Calle Ejemplo 123, Ciudad de México</p>
+    </section>
+
+    <section class="button-container">
+        <a href="Menú.html" class="link-button">Ir al Menú</a>
+    </section>
+
+     <section>
+    <h1>Sección administrativa</h1>
+
+    <div id="carousel" class="carousel">
+      <img src="img1.jpg" class="carousel-image active" />
+      <img src="img2.jpg" class="carousel-image" />
+      <img src="img3.jpg" class="carousel-image" />
+    </div>
+
+    <button id="adminBtn">Administrador</button>
+
+    <form id="loginForm">
+      <h2>Iniciar sesión</h2>
+      <input type="text" id="user" placeholder="Usuario" />
+      <input type="password" id="pass" placeholder="Contraseña" />
+      <div class="g-recaptcha" data-sitekey="6Lfo_jMrAAAAANcTW3C5m9ffCKCci88PHi9N5XTF"></div><br />
+      <button type="submit">Entrar</button>
+    </form>
+
+    <div id="productForm">
+      <h2>Alta de Producto</h2>
+      <form id="altaForm">
+        <input type="text" id="nombre" placeholder="Nombre del producto" required />
+        <input type="text" id="precio" placeholder="Precio" required />
+        <textarea id="descripcion" placeholder="Descripción" required></textarea>
+        <button type="submit">Guardar</button>
+      </form>
+
+      <h2>Buscar Producto</h2>
+      <form id="buscarForm">
+        <input type="text" id="buscarNombre" placeholder="Nombre del producto" />
+        <button type="submit">Buscar</button>
+      </form>
+      <div id="resultadoBusqueda"></div>
+
+      <h2>Eliminar Producto</h2>
+      <form id="eliminarForm">
+        <input type="number" id="eliminarId" placeholder="ID del producto" />
+        <button type="submit">Eliminar</button>
+      </form>
+      <div id="ultimoAcceso" style="margin-top: 20px; font-weight: bold;"></div>
+    </div>
+
+   
+  </section>
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+    // Carrusel
+    let index = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    setInterval(() => {
+      images[index].classList.remove('active');
+      index = (index + 1) % images.length;
+      images[index].classList.add('active');
+    }, 3000);
+
+    // Mostrar login
+    document.getElementById("adminBtn").addEventListener("click", () => {
+      document.getElementById("loginForm").style.display = "block";
+    });
+
+  // Validar login
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const user = document.getElementById("user").value;
+  const pass = document.getElementById("pass").value;
+
+  // Validación simple
+  if (user === "admin" && pass === "1234") {
+  const ahora = new Date().toISOString(); // Fecha y hora actual
+  const ultimo = getCookie("ultimo_acceso_admin"); // Leer cookie anterior si existe
+
+  alert("Inicio de sesión exitoso.");
+  window.location.href = "admin.html"; // Redirige a la página admin
+  return;
+}
+  setCookie("ultimo_acceso_admin", ahora, 7); // Guardar la nueva fecha como cookie (dura 7 días)
+
+  document.getElementById("productForm").style.display = "block";
+  document.getElementById("loginForm").style.display = "none";
+
+  // Mostrar la cookie anterior en el div
+  const div = document.getElementById("ultimoAcceso");
+
+  if (user === "admin" && pass === "1234") {
+  const ahora = new Date().toISOString();
+  const ultimo = getCookie("ultimo_acceso_admin");
+
+  alert("Inicio de sesión exitoso.");
+  window.location.href = "admin.html";
+} else {
+  alert("Credenciales incorrectas.");
+}
+});
+    // Botón interactivo
+    const btn = document.getElementById("colorBtn");
+    btn.addEventListener("mouseover", () => btn.style.backgroundColor = "orange");
+    btn.addEventListener("mouseout", () => btn.style.backgroundColor = "#4CAF50");
+    btn.addEventListener("keydown", (e) => alert("Tecla presionada: " + e.key));
+
+    // Alta producto
+    document.getElementById("altaForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      const precio = document.getElementById("precio").value;
+      const descripcion = document.getElementById("descripcion").value;
+
+      const res = await fetch("alta_producto.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre, precio, descripcion })
+      });
+      const data = await res.text();
+      alert(data);
+    });
+
+    // Buscar producto
+    document.getElementById("buscarForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const nombre = document.getElementById("buscarNombre").value;
+
+      const res = await fetch(`buscar_producto.php?nombre=${encodeURIComponent(nombre)}`);
+      const data = await res.json();
+      const resultado = document.getElementById("resultadoBusqueda");
+
+      if (data.length) {
+        resultado.innerHTML = data.map(prod =>
+          `<p><strong>ID:</strong> ${prod.id} - <strong>Nombre:</strong> ${prod.nombre} - <strong>Precio:</strong> $${prod.precio} - <strong>Descripción:</strong> ${prod.descripcion}</p>`
+        ).join('');
+      } else {
+        resultado.innerHTML = "<p>No se encontraron productos.</p>";
+      }
+    });
+
+    // Eliminar producto
+    document.getElementById("eliminarForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const id = document.getElementById("eliminarId").value;
+
+      const res = await fetch("eliminar_producto.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id })
+      });
+      const data = await res.text();
+      alert(data);
+    });
+  </script>
+
+
+  <div id="cookie-banner" style="background: #eee; padding: 15px; position: fixed; bottom: 0; width: 100%; display: none;">
+    Este sitio usa cookies para mejorar tu experiencia. Al continuar, aceptas su uso.
+    <button onclick="acceptCookies()">Aceptar</button>
+  </div>
+
+  <script>
+  
+    window.onload = function() {
+      if (!getCookie("cookies_aceptadas")) {
+        document.getElementById("cookie-banner").style.display = "block";
+      }
+    };
+
+    function acceptCookies() {
+      setCookie("cookies_aceptadas", "true", 365);
+      document.getElementById("cookie-banner").style.display = "none";
+    }
+
+    function setCookie(nombre, valor, dias) {
+      const d = new Date();
+      d.setTime(d.getTime() + (dias*24*60*60*1000));
+      const expira = "expires="+ d.toUTCString();
+      document.cookie = nombre + "=" + valor + ";" + expira + ";path=/";
+    }
+
+    function getCookie(nombre) {
+      const nombreEQ = nombre + "=";
+      const cookies = document.cookie.split(';');
+      for(let i = 0; i < cookies.length; i++) {
+        let c = cookies[i];
+        while (c.charAt(0) === ' ') c = c.substring(1);
+        if (c.indexOf(nombreEQ) === 0) return c.substring(nombreEQ.length, c.length);
+      }
+      return null;
+    }
+  </script>
+  
+</body>
+  </html>
+  
